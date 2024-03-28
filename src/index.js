@@ -188,7 +188,7 @@ function drawWordsDefsGrid(container, chosenWordDefPairs, lettersNumbers) {
         grid.className = 'grid';
 
         const columns = word.length;
-        grid.style.gridTemplateColumns = `repeat(${columns}, auto)`;
+        //grid.style.gridTemplateColumns = `repeat(${columns}, auto)`;
 
         let flexItem = document.createElement('div'); // Create a flex container
         flexItem.className = 'flex-item';
@@ -342,10 +342,13 @@ function handleKeyPress(event) {
 
 function cellWrite(event) {
     let cell = event.target;
-    console.log(cell.textContent);
 
     if (cell.textContent.length > 1) {
         cell.textContent = lastCharacter;
+        if (cell.classList.contains('mistake') || cell.classList.contains('wrong')) {
+            cell.classList.remove('mistake');
+            cell.classList.remove('wrong');
+        }
     }
     // Check if the current cell already has a letter
     if (cell.textContent.length === 1) {
@@ -426,47 +429,98 @@ function findAllCellGridBoxContents(cell) {
 }
 
 function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
+    let gameWon = false;
     if (guessedWord.length === mysteryWords[cellWordIndex].length && !guessedWord.includes('?')) {
         const wholeDocumentCells = document.querySelectorAll(".box");
+        // check if current word is correct
         if (mysteryWords[cellWordIndex] === guessedWord) {
             console.log("you guessed " + mysteryWords[cellWordIndex] + " correctly!");
             let index = 0;
+            // add all current word correctly guessed letters to hashset type object
             allCells.forEach(singleCell => {
                 correctlyGuessedNumbers[singleCell.id.split(':')[3]] = mysteryWords[cellWordIndex][index];
                 index += 1;
             })
+            // check if correctly guessed 'word' is 'key answer'
+            if (cellWordIndex == 0) {
+                gameWon = true;
+            }
         } 
         else {
             console.log("incorrect guess! :(");
             let index = 0;
             allCells.forEach(singleCell => {
+                // add all current word correctly guessed letters to hashset type object
                 if (mysteryWords[cellWordIndex][index] === singleCell.textContent.toUpperCase()) {
                     correctlyGuessedNumbers[singleCell.id.split(':')[3]] = mysteryWords[cellWordIndex][index];
                 }
+                // if letter hasn't been guessed before. Paint red
                 else {
                     singleCell.classList.add('wrong');
-                    singleCell.classList.remove('correct');
                 }
                 index += 1;
+            })
+            allCells.forEach(singleCell => { 
+                // if letter has been entered somewhere else correctly already. Meaning - human error was made, paint yellow not red
+                if (singleCell.classList.contains('wrong') && correctlyGuessedNumbers[singleCell.id.split(':')[3]] !== undefined) {
+                    singleCell.classList.remove('wrong');
+                    singleCell.classList.add('mistake');
+                }
             })
         }
 
         // fills ALL cells that contain found out letters
-        wholeDocumentCells.forEach(singleDocumentCell => {
-            let cellIdNumericalValue = singleDocumentCell.id.split(':')[3];
-            if (correctlyGuessedNumbers.hasOwnProperty(cellIdNumericalValue)) {
-                singleDocumentCell.classList.add('correct');
-                singleDocumentCell.classList.remove('wrong');
-                singleDocumentCell.contentEditable = false;
-                singleDocumentCell.textContent = correctlyGuessedNumbers[cellIdNumericalValue];
-            }
-        })
+        fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers);
 
         cell.contentEditable = false;
         cell.blur;
+
+        if (gameWon) {
+            gameWin();
+        }
     } 
     else {
         console.log("word not completed");
+    }
+}
+
+function fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers) {
+    wholeDocumentCells.forEach(singleDocumentCell => {
+        let cellIdNumericalValue = singleDocumentCell.id.split(':')[3];
+        // check if letter is in the 'correctly guessed letters' hashset. Don't enter if it's player's mistake
+        if (correctlyGuessedNumbers.hasOwnProperty(cellIdNumericalValue) && !singleDocumentCell.classList.contains('mistake')) {
+            singleDocumentCell.classList.add('correct');
+            singleDocumentCell.classList.remove('wrong');
+            singleDocumentCell.contentEditable = false;
+            singleDocumentCell.textContent = correctlyGuessedNumbers[cellIdNumericalValue];
+        }
+    })
+}
+
+function gameWin() {
+    const modal = document.getElementById('modalWin');
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    modal.style.display = "block";
+    // var winMessage = 
+
+    // When the user clicks on the button, refresh page
+    /*
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    */
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modalWinMessage) {
+        modal.style.display = "none";
+    }
     }
 }
 

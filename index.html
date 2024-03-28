@@ -9,6 +9,17 @@
     </head>
     <body>
         <div id="game"></div>
+        <div id="modalWin" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Sa leidsid võtmevastuse! Tubli!</p>
+                <p>Võtmevastus: ... </p>
+                <p>Vigu: ... </p>
+                <p>Võid selle sõnumi sulgeda ja arvata veel teisi sõnu kui mõni lahendamata jäi</p>
+                <p>või tahad mängida uut mängu? NUPP </p>
+                <button id="myBtn" onClick="window.location.reload();">Open Modal</button>
+            </div>
+        </div>
         <script src="./src/index.js" type="module"></script>
     </body>
 </html>
