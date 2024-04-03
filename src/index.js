@@ -39,9 +39,7 @@ function drawDefinitions(container, word, definition) {
 }
 
 function drawNumbers(grid, row, col, lettersNumbers, word) {
-    //const newDiv = document.createElement('div');
     const numbers = document.createElement('h3');
-    //newDiv.appendChild(numbers)
     numbers.className = 'h3';
     numbers.textContent = lettersNumbers[word[col]];
     numbers.id = `h3:${row}:${col}`;
@@ -59,7 +57,7 @@ function uniqueLettersAndNumbers() {
         hashset[letter] = unique_numbers[i];
     });
     
-    console.log(hashset);
+    //console.log(hashset);
     return hashset;
 }
 
@@ -122,7 +120,7 @@ function findChosenWordDefPairs(sentenceSolution, wordDefDictionary, chosenWordD
     const reorderedSentence = splittedSentence.filter(word => word.length > 1);
     reorderedSentence.sort((a, b) => a.length - b.length);
 
-    console.log(reorderedSentence);
+    //console.log(reorderedSentence);
 
     for (let i = 0; i < reorderedSentence.length; i++) {
         const wordSorted = reorderedSentence[i].split("").sort().join("");
@@ -133,15 +131,45 @@ function findChosenWordDefPairs(sentenceSolution, wordDefDictionary, chosenWordD
     }
 }
 
+function topTaskbarCreate(container) {
+    const topBar = document.createElement('div');
+    topBar.className = "flex-box";
+
+    const keySent = document.createElement('h1');
+    keySent.className = 'h1';
+    keySent.textContent = 'VÕTMELAUSE';
+    //keySent.style.padding = "10px 200px 10px 200px";
+    topBar.appendChild(keySent);
+
+    const replayButton = document.createElement('button');
+    replayButton.style.backgroundImage = 'url("img/replay2.webp")';
+    replayButton.style.backgroundSize = '88%';
+    replayButton.style.backgroundPosition = 'center';
+    replayButton.id = 'replayButton';
+    replayButton.className = 'replayBtn';
+    replayButton.title = 'Uus mäng';
+    replayButton.setAttribute("hidden", "hidden");
+    topBar.appendChild(replayButton);
+
+    const helpButton = document.createElement('button');
+    helpButton.style.backgroundImage = 'url("img/help1.png")';
+    helpButton.style.backgroundSize = 'cover';
+    helpButton.style.backgroundPosition = 'center';
+    helpButton.id = 'helpButton';
+    helpButton.className = 'helpBtn';
+    helpButton.title = 'Õpetus';
+    topBar.appendChild(helpButton);
+
+    container.appendChild(topBar);
+}
+
 function drawSentenceGrid(container, sentenceSolution, lettersNumbers) {
-    console.log(sentenceSolution);
     let sentence = sentenceSolution.toUpperCase();
     mysteryWords.push(sentence);
 
-    const keySent = document.createElement('h2');
-    keySent.className = 'h2';
-    keySent.textContent = 'VÕTMELAUSE';
-    container.appendChild(keySent);
+    const topCompartment = document.createElement('div');
+    topCompartment.className = 'topCompartment';
+    topTaskbarCreate(topCompartment);
 
     const grid = document.createElement('div');
     grid.className = 'grid';
@@ -157,7 +185,11 @@ function drawSentenceGrid(container, sentenceSolution, lettersNumbers) {
         if (/[a-zõüöäA-ZÕÜÖÄ]/.test(sentence[j])) {
             drawBox(flexItem, 0, j, lettersNumbers, sentence);
         } 
-        // whitespace or -
+        // character is -
+        else if (/-/.test(sentence[j])) {
+            drawAutoFilledSpace(flexItem, 0, j, lettersNumbers, sentence);
+        }
+        // character is whitespace
         else {
             drawAutoFilledSpace(flexItem, 0, j, lettersNumbers, sentence);
             // add flex-item container to the grid container and create new flex-item container
@@ -174,7 +206,8 @@ function drawSentenceGrid(container, sentenceSolution, lettersNumbers) {
         grid.appendChild(flexItem);
     }
     
-    container.appendChild(grid);
+    topCompartment.appendChild(grid);
+    container.appendChild(topCompartment);
 }
 
 function drawWordsDefsGrid(container, chosenWordDefPairs, lettersNumbers) {
@@ -188,7 +221,6 @@ function drawWordsDefsGrid(container, chosenWordDefPairs, lettersNumbers) {
         grid.className = 'grid';
 
         const columns = word.length;
-        //grid.style.gridTemplateColumns = `repeat(${columns}, auto)`;
 
         let flexItem = document.createElement('div'); // Create a flex container
         flexItem.className = 'flex-item';
@@ -219,7 +251,7 @@ function drawGrid(container, sentenceSolution, wordDefDictionary, lettersNumbers
             chosenWordDefPairs.push(chooseRandomWordDef(wordDefDictionary, chosenWordDefPairs));
         }
     }
-    console.log(chosenWordDefPairs);
+    //console.log(chosenWordDefPairs);
     
     drawWordsDefsGrid(container, chosenWordDefPairs, lettersNumbers);
 }
@@ -305,6 +337,12 @@ async function startup() {
         cell.addEventListener("input", cellWrite);
         cell.addEventListener("keydown", handleKeyPress);
     });
+    document.getElementById('replayButton').addEventListener('click', function() {
+        window.location.reload();
+    });
+    document.getElementById('helpButton').addEventListener('click', function() {
+        helpModal();
+    });
 }
 
 let lastCharacter = '';
@@ -315,7 +353,6 @@ function handleKeyPress(event) {
     
     const keyCode = event.keyCode || event.which;
     const key = String.fromCharCode(keyCode);
-    console.log(key);
 
     // 13 is for 'enter'
     if (event.keyCode === 13) {
@@ -326,14 +363,10 @@ function handleKeyPress(event) {
     if (event.keyCode === 8 || event.keyCode === 46) {
         backspaceOrDeletePressed(cell);
     }
-
     else {
         if (!/^[a-zA-Z]*$/.test(key) && !/^[õüöäÕÜÖÄ]*$/.test(event.key)) {
             event.preventDefault();
         } 
-        /*if (!event.key.match(/[a-z]/i)) {
-            event.preventDefault();
-        }*/
         else {
             lastCharacter = event.key.toUpperCase();
         }
@@ -369,12 +402,6 @@ function cellWrite(event) {
         }
 
         if (nextCell) {
-            /*
-            if (nextCell.classList.contains('h2')) {         
-                console.log("fjsajfa");  
-                return;
-            }*/
-
             nextCell.contentEditable = true;
             nextCell.focus();
 
@@ -388,11 +415,9 @@ function cellWrite(event) {
 }
 
 function cellClicked(event) {
-    //const cellIndex = this.style.backgroundColor = "green";
-
     let cell = event.target;
 
-    if (cell.classList.contains('correct')) {
+    if (cell.classList.contains('correct') || cell.getAttribute('id').includes('tutorialBox')) {
         return;
     }
 
@@ -402,8 +427,6 @@ function cellClicked(event) {
     }
     cell.focus();
     //cell.classList.add('selected');
-    console.log('enter cell');
-    
 }
 
 function backspaceOrDeletePressed(cell) {
@@ -428,10 +451,12 @@ function findAllCellGridBoxContents(cell) {
     checkWordCorrection(guessedWord, cellWordIndex, allCells, cell);
 }
 
+let inputsAmount = 0;
+let incorrectInputsAmount = 0;
+
 function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
-    let gameWon = false;
     if (guessedWord.length === mysteryWords[cellWordIndex].length && !guessedWord.includes('?')) {
-        const wholeDocumentCells = document.querySelectorAll(".box");
+        const wholeDocumentCells = document.getElementById('game').querySelectorAll('.box');
         // check if current word is correct
         if (mysteryWords[cellWordIndex] === guessedWord) {
             console.log("you guessed " + mysteryWords[cellWordIndex] + " correctly!");
@@ -441,10 +466,6 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
                 correctlyGuessedNumbers[singleCell.id.split(':')[3]] = mysteryWords[cellWordIndex][index];
                 index += 1;
             })
-            // check if correctly guessed 'word' is 'key answer'
-            if (cellWordIndex == 0) {
-                gameWon = true;
-            }
         } 
         else {
             console.log("incorrect guess! :(");
@@ -460,6 +481,7 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
                 }
                 index += 1;
             })
+            incorrectInputsAmount += 1;
             allCells.forEach(singleCell => { 
                 // if letter has been entered somewhere else correctly already. Meaning - human error was made, paint yellow not red
                 if (singleCell.classList.contains('wrong') && correctlyGuessedNumbers[singleCell.id.split(':')[3]] !== undefined) {
@@ -468,6 +490,7 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
                 }
             })
         }
+        inputsAmount += 1;
 
         // fills ALL cells that contain found out letters
         fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers);
@@ -475,12 +498,27 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
         cell.contentEditable = false;
         cell.blur;
 
-        if (gameWon) {
-            gameWin();
-        }
+        // check if 'key sentence' has been filled correctly
+        checkAnswerCells(mysteryWords);
     } 
     else {
         console.log("word not completed");
+    }
+}
+
+var gameWon = false;
+
+function checkAnswerCells(mysteryWords) {
+    let answerWord = '';
+    var answerGrid = document.getElementsByClassName("grid")[0];
+    var answerCells = answerGrid.querySelectorAll('.box, .filledSpace');
+    answerCells.forEach(answerCell => {
+        answerWord = answerWord + answerCell.textContent.toUpperCase();
+    })
+
+    // if 'key sentence' has been filled correctly
+    if (mysteryWords[0] === answerWord && !gameWon) {
+        gameWin(answerWord);
     }
 }
 
@@ -497,19 +535,53 @@ function fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers) {
     })
 }
 
-function gameWin() {
-    const modal = document.getElementById('modalWin');
+function gameWin(answerWord) {
+    const modal = document.getElementById("modalWin");
     var btn = document.getElementById("myBtn");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementById("modalWinClose");
     modal.style.display = "block";
-    // var winMessage = 
 
-    // When the user clicks on the button, refresh page
-    /*
-    btn.onclick = function() {
-        modal.style.display = "block";
+    var answerWordLower = mysteryWords[0].toLowerCase()
+    var winMessage = answerWordLower.charAt(0).toUpperCase() + answerWordLower.slice(1);
+
+    var answerMessage = document.getElementById("answerSlot");
+    var inputsMessage = document.getElementById("inputsAmount");
+    var incorrectInputsMessage = document.getElementById("incorrectInputsAmount");
+
+    answerMessage.innerHTML = "Võtmevastus: <span style='font-weight: bold;'>" + winMessage + "</span>";
+    inputsMessage.innerHTML = "Sisestusi: " + inputsAmount;
+    incorrectInputsMessage.innerHTML = "Vigaseid sisestusi: " + incorrectInputsAmount;
+
+    gameWon = true;
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+        showButton();
     }
-    */
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        showButton();
+    }
+    }
+}
+
+function showButton() {
+    let element = document.getElementById("replayButton");
+    let hidden = element.getAttribute("hidden");
+
+    if (hidden) {
+       element.removeAttribute("hidden");
+    }
+}
+
+function helpModal() {
+    const modal = document.getElementById("modalHelp");
+    modal.style.display = "block";
+    var span = document.getElementById("modalHelpClose");
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
@@ -518,7 +590,7 @@ function gameWin() {
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-    if (event.target == modalWinMessage) {
+    if (event.target == modal) {
         modal.style.display = "none";
     }
     }

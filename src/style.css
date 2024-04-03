@@ -1,8 +1,70 @@
 html,
 body {
-    background: #858181;
+    background: rgb(224, 220, 220);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
+.flex-box {
+    display:flex;
+    justify-content:space-between;
+}
+
+.topCompartment {
+    background: #d1cccc;
+    max-width: 60%;
+    margin: 25px auto 50px auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px #9e9e9e;
+}
+  
+.replayBtn {
+    position: absolute;
+    right: 0;
+    margin-right: 75px;
+    top: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background-color: rgb(0, 211, 0);
+    border-radius: 50%;
+}
+
+.helpBtn {
+    position: absolute;
+    margin-right: 15px;
+    right: 0;
+    top: 15px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    background-color: rgb(255, 196, 3);
+    border-radius: 50%;
+}
+
+.replayBtn:hover,
+.replayBtn:focus {
+    color: black;
+    text-decoration: none;
+    background-color: rgb(1, 163, 1);
+    cursor: pointer;
+}
+
+.helpBtn:hover,
+.helpBtn:focus {
+    color: black;
+    text-decoration: none;
+    background-color: rgb(207, 159, 1);
+    cursor: pointer;
+}
 
 #game {
     display: grid;
@@ -10,110 +72,184 @@ body {
 }
 
 .box {
-    width: 50px;
+    width: 45px;
     height: 60px;
     border: 2px solid black;
     margin: 2px;
-    color: white;
+    background: #b1bbc2;
+    color: black;
     text-transform: uppercase;
+    font-weight: bold;
     display: grid;
     place-items: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     cursor: pointer;
     margin-bottom: 20px;
     position: relative;
+    border-radius: 5px;
 }
 
 .filledSpace {
-    width: 50px;
+    width: 45px;
     height: 60px;
     margin: 2px;
-    color: white;
+    color: black;
     text-transform: uppercase;
     display: grid;
     place-items: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
     margin-bottom: -5px;
 }
 
 .h2 {
     font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
     color: black;
     max-width: 50%;    
+    text-align: center;
+}
+
+.h2.background {
+    background: #bcc0c4;
+    max-width: 60% !important;
+    margin: 20px auto 25px auto;
+    border-radius: 5px;
+    padding: 0.5%;
+    box-shadow: 0 0 3px 2px #9e9e9e;
+}
+
+.h1 {
+    text-align: center;
+    color: black;
+    margin: 7px auto 7px auto;
+    border-radius: 5px;
+    padding: 1% 25% 1% 25%;
+    background: #bcc0c4;
+    border: 1px solid rgba(128, 128, 128, 0.151);
+    box-shadow: 0 0 3px 2px #757575;
 }
 
 .h3 {
     font-size: 16px;
     /*flex-basis: 100%;*/
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+    color: black;
     text-align: center;
     position: relative;
-    right: 33px;
+    right: 31.5px;
     top: 52px;
     width: 2px; /* Width for 1-letter text */
     display: inline-block; /* Ensures the width is respected */
 }
 
 .grid {
-    width: 50%;
+    max-width: 60%;
     margin: 1rem auto;
     display: flex;
     flex-wrap: wrap;
     justify-items: center;
     grid-gap: 0px; 
     justify-content: center;
-    /*grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));*/
-    /*grid-template-columns: repeat(auto-fill, 58px);*/
 }
 
 .flex-item {
-    /* flex-grow: 1; /* Allow flex items to grow to fill available space */
     margin-bottom: 5px; /* Adjust margin as needed */
     display: flex;
     flex-direction: row;
-
 }
 
-.flex-item-below {
-    flex-basis: 100%;
+.flex-item.whiteSpaceMargin {
+    margin-left: 0px;
 }
 
-/*
-.grid-item {
-    background: blue;
-    width: 50px;
-    height: 50px;
-    margin: 25px;
-    flex-grow: 1;
-    white-space: nowrap;
+.flex-item.background {
+    background: #aaa;
+    border-radius: 10px;
+    line-height: 28px;
 }
-*/
+
+.tutorialMini {
+    line-height: 32px;
+    text-align: left;
+    padding: 10px 15px;
+    background: #bcc0c4;
+    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+    box-shadow: 0 0 3px 2px #9e9e9e;
+}
 
 .box.empty {
     background: gray;
 }
 
 .box.wrong {
-    background: #e31717;
+    background: #ff2247;
 }
 
 .box.correct {
-    background: green;
-}
-
-.box.selected {
-    background: yellow;
+    background: rgb(17, 187, 17);
 }
 
 .box.mistake {
-    background: #e3ab1e;
+    background: #ffc635;
 }
 
+.box.tutorial {
+    cursor: default !important;
+}
 
+.tutorialMiniBox {
+    color: black;
+    border: 2px solid black;
+    padding: 5px 5px;
+    margin: 5px 5px 5px;
+    font-weight: bold;
+    place-items: center;
+    position: relative;
+    border-radius: 5px;
+}
+
+.tutorialMiniBox.correct {
+    background: rgb(17, 187, 17);
+}
+
+.tutorialMiniBox.wrong {
+    background: #ff2247;
+}
+
+.tutorialMiniBox.mistake {
+    background: #ffc635;
+}
+
+.tutorialMiniBox.empty {
+    background: #b1bbc2;
+}
+
+b {
+    margin-top: 12px;
+    color: black;
+}
+
+p {
+    font-family: 'Montserrat', 'Open Sans', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    max-width: 50%;
+    margin: 10px auto 5px auto;
+}
+
+.modalBtnText {
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    color: black;
+    max-width: 75%;
+    cursor: pointer;
+}
+
+.modalCentered {
+    text-align:center;
+}
 
 
 /* https://www.w3schools.com/howto/howto_css_modals.asp */
@@ -153,7 +289,8 @@ body {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 60%;
+    max-width: 60%;
+    border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.4s

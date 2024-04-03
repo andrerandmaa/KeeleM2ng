@@ -11,13 +11,73 @@
         <div id="game"></div>
         <div id="modalWin" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Sa leidsid võtmevastuse! Tubli!</p>
-                <p>Võtmevastus: ... </p>
-                <p>Vigu: ... </p>
-                <p>Võid selle sõnumi sulgeda ja arvata veel teisi sõnu kui mõni lahendamata jäi</p>
-                <p>või tahad mängida uut mängu? NUPP </p>
-                <button id="myBtn" onClick="window.location.reload();">Open Modal</button>
+                <span id="modalWinClose" class="close">&times;</span>
+                <div id="modalTexts" class="modalCentered">
+                    <br>
+                    <h2>Sa leidsid võtmevastuse!</h2>
+                    <br>
+                    <p id="answerSlot">Võtmevastus: ... </p>
+                    <p id="inputsAmount">Sisestusi: ... </p>
+                    <p id="incorrectInputsAmount">Vigaseid sisestusi: ... </p>
+                    <br>
+                    <p>Võid veel arvata teisi sõnu kui mõni lahendamata jäi</p>
+                    <br>
+                </div>
+                <!--
+                <div id="modalReplay" class="modalCentered">
+                    <button id="myBtn"  onClick="window.location.reload();">
+                        <p class="modalText">Uus mäng</p>
+                    </button>
+                </div> -->
+            </div>
+        </div>
+        <div id="modalHelp" class="modal">
+            <div class="modal-content">
+                <span id="modalHelpClose" class="close">&times;</span>
+                <div id="modalTexts" class="modalCentered">
+                    <h2 class="h2 background">Kuidas mängida</h2>
+                    <p>Mängu eesmärk on leida <span style="font-weight:bold;">võtmelause</span> kõik tähed.</p>
+                    <br>
+                    <p>Abiks on nummerdatud tähekastid ja mõistete definitsioonid.</p>
+                    <p>Igale tähele on omandatud unikaalne number.</p>
+                    <p>Klikka ühele tähekastile ja sisesta neisse tähti kuni kõik kastid on täidetud.</p>
+                    <p>Sõna kinnitamiseks vajuta <span style="font-weight:bold;">'enter'</span> klahvile.</p>
+                    <br>
+                    <p>Näide tähekastide värvide tähendustest:</p>
+                    <div class="grid">
+                        <div id="exampleWord" class="flex-item">
+                            <div id="tutorialBox" class="box correct tutorial">O</div>
+                            <h3 class="h3">6</h3>
+                            <div id="tutorialBox" class="box tutorial">M</div>
+                            <h3 class="h3">3</h3>
+                            <div id="tutorialBox" class="box correct tutorial">A</div>
+                            <h3 class="h3">9</h3>
+                            <div id="tutorialBox" class="box wrong tutorial">L</div>
+                            <h3 class="h3">4</h3>
+                            <div id="tutorialBox" class="box mistake tutorial">E</div>
+                            <h3 class="h3">9</h3>
+                        </div>
+                    </div>
+                    <div class="grid">
+                        <div class="tutorialMini">
+                            <b class="tutorialMiniBox correct">O</b>
+                            <b>,</b>
+                            <b class="tutorialMiniBox correct">A</b>
+                            <b>tähed on õigesti arvatud.</b>
+                            <br>
+                            <b class="tutorialMiniBox empty">M</b>
+                            <b>tähe paiknemist pole veel kontrollitud.</b>
+                            <br>
+                            <b class="tutorialMiniBox wrong">L</b>
+                            <b>täht on valesti arvatud.</b>
+                            <br>
+                            <b class="tutorialMiniBox mistake">E</b>
+                            <b>numbrile vastav täht on juba leitud.</b>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <script src="./src/index.js" type="module"></script>
