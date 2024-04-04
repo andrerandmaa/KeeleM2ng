@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-04-04T15:35:25.577Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" version="24.2.2" etag="3fxFincgu-yzNe0BvtiV" type="github">
+<mxfile host="app.diagrams.net" modified="2024-04-04T15:36:01.757Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="kCMN42tInC3dXRt0CxEb" version="24.2.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1223" dy="898" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2074" dy="2275" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -44,6 +44,265 @@
         </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="Replace Bulb" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="320" y="310" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-1" target="gTA1HExa4bC7OUB-ggl0-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-1" value="Loe sisse lausete tekstifail" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="20" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-3" target="gTA1HExa4bC7OUB-ggl0-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-3" value="Loe sisse mõistete fail.&amp;nbsp;&lt;div&gt;Edaspidi Fail_2&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="40" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-5" target="gTA1HExa4bC7OUB-ggl0-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-5" value="Vali juhuslik lause" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="180" y="70" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-7" target="gTA1HExa4bC7OUB-ggl0-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-7" value="Sisesta lause veebilehele tähe-numbri süsteemi põhjal" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="320" y="70" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-9" target="gTA1HExa4bC7OUB-ggl0-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-9" value="Sorteeri sõnad kasvavasse järjekorda" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="460" y="70" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-11" target="gTA1HExa4bC7OUB-ggl0-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-11" value="Sõnu käiakse ühekaupa läbi." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="600" y="70" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-13" target="gTA1HExa4bC7OUB-ggl0-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-13" value="Sõna seatakse tähestikulisse järjekorda, tähekordused eemaldatakse&lt;div&gt;nt: &quot;saia&quot; -&amp;gt; &quot;ais&quot;&lt;/div&gt;&lt;div&gt;Edaspidi Sõne_T&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="260" y="400" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-15" target="gTA1HExa4bC7OUB-ggl0-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-15" value="Iga mõiste on kirja pandud formaadis (võti:väärtus)&lt;div&gt;nt: &quot;saiad:adis::definitsioon&quot;&lt;/div&gt;&lt;div&gt;&quot;adis&quot; on sõna &quot;saiad&quot; seatud tähestikulisse järjekorda ilma tähekordusteta&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="230" y="525" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-20" target="gTA1HExa4bC7OUB-ggl0-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-17" value="Jah" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-16">
+          <mxGeometry x="0.0111" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-20" target="gTA1HExa4bC7OUB-ggl0-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-19" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-18">
+          <mxGeometry x="-0.1133" relative="1" as="geometry">
+            <mxPoint y="3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-20" value="Fail_2 sisaldab väärtuste hulgas sõnesid, kus on kõik samad tähed sees mis Sõne_T sees.&lt;div&gt;Kui väärtus on Sõna_O, siis jätame kõrvale&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;align=center;shadow=0;strokeColor=default;fillColor=default;gradientColor=none;labelBackgroundColor=default;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="530" y="420" width="240" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-22" target="gTA1HExa4bC7OUB-ggl0-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-22" value="Sobivatest valitakse suvaline sõna" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="780" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-25" target="gTA1HExa4bC7OUB-ggl0-58">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1400" y="668" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="1230" y="-100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-25" target="gTA1HExa4bC7OUB-ggl0-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-25" value="Salvesta sõna ja definitsioon mällu" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1140" y="448" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-27" target="gTA1HExa4bC7OUB-ggl0-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-27" value="Eemalda Sõne_T esimene täht" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="424" y="786" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-28" value="Jah" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-31" target="gTA1HExa4bC7OUB-ggl0-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-31" target="gTA1HExa4bC7OUB-ggl0-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-30" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-29">
+          <mxGeometry x="-0.0773" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-31" value="Sõne_T vähemalt 1 tähemärk pikk" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="580" y="666" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-33" target="gTA1HExa4bC7OUB-ggl0-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-33" value="Vali suvaline sõna kõikide sõnade hulgast" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="920" y="696" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-38" target="gTA1HExa4bC7OUB-ggl0-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-35" value="Jah" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-34">
+          <mxGeometry x="-0.1686" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-38" target="gTA1HExa4bC7OUB-ggl0-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-37" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-36">
+          <mxGeometry x="-0.0588" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-38" value="Sõna ja definitsioon on varem mällu salvestatud" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1080" y="678" width="240" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-43" target="gTA1HExa4bC7OUB-ggl0-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-40" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-39">
+          <mxGeometry x="-0.367" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-41" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-43" target="gTA1HExa4bC7OUB-ggl0-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-42" value="Jah" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-41">
+          <mxGeometry x="-0.2899" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-43" value="Sõna ja definitsioon on varem mällu salvestatud" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="840" y="430" width="240" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-45" target="gTA1HExa4bC7OUB-ggl0-20">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="390" />
+              <mxPoint x="500" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-45" value="Eemalda sõna väljavalitute seast" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="727.5" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-50" target="gTA1HExa4bC7OUB-ggl0-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-47" value="Jah" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-46">
+          <mxGeometry x="-0.2412" y="2" relative="1" as="geometry">
+            <mxPoint x="35" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-50">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1450" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1390" y="255" />
+              <mxPoint x="1390" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-49" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-48">
+          <mxGeometry x="0.1268" relative="1" as="geometry">
+            <mxPoint x="-274" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-50" value="Sõna valiti.&lt;div&gt;Edaspidi Sõna_O&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="602.5" y="200" width="125" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-55" target="gTA1HExa4bC7OUB-ggl0-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-52" value="Jah" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-51">
+          <mxGeometry x="-0.2848" y="-2" relative="1" as="geometry">
+            <mxPoint x="-32" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-55" target="gTA1HExa4bC7OUB-ggl0-60">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1612.5" y="-80" as="sourcePoint" />
+            <mxPoint x="1270.5" y="30" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-54" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-53">
+          <mxGeometry x="0.1963" y="-3" relative="1" as="geometry">
+            <mxPoint x="-3" y="34" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-55" value="Mälus on 8 sõna ja definitsiooni" style="rhombus;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1450" y="170" width="125" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-56" value="Sisesta definitsioonid ja mõisted veebilehele" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1928" y="192.5" width="140" height="65" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-58">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1450" y="220" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1390" y="-100" />
+              <mxPoint x="1390" y="220" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-58" value="Mälu" style="ellipse;whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1280" y="-140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-60" target="gTA1HExa4bC7OUB-ggl0-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-60" value="Vali suvaline sõna kõikide sõnade hulgast" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1550" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-65" target="gTA1HExa4bC7OUB-ggl0-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-62" value="Jah" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-61">
+          <mxGeometry x="-0.1686" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-65" target="gTA1HExa4bC7OUB-ggl0-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-64" value="Ei" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="gTA1HExa4bC7OUB-ggl0-63">
+          <mxGeometry x="0.2917" y="-3" relative="1" as="geometry">
+            <mxPoint x="-3" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-65" value="Sõna ja definitsioon on varem mällu salvestatud" style="rhombus;whiteSpace=wrap;html=1;rounded=1;labelBackgroundColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1710" y="32" width="240" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="gTA1HExa4bC7OUB-ggl0-67" target="gTA1HExa4bC7OUB-ggl0-58">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1830" y="-128" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gTA1HExa4bC7OUB-ggl0-67" value="Salvesta sõna ja definitsioon mällu" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="1770" y="-72.5" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
