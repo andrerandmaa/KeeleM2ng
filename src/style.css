@@ -74,8 +74,8 @@ body {
 .box {
     width: 45px;
     height: 60px;
-    border: 2px solid black;
-    margin: 2px;
+    border: 1px solid black;
+    margin: 1px;
     background: #b1bbc2;
     color: black;
     text-transform: uppercase;
@@ -134,7 +134,7 @@ body {
     color: black;
     text-align: center;
     position: relative;
-    right: 31.5px;
+    right: 30px;
     top: 52px;
     width: 2px; /* Width for 1-letter text */
     display: inline-block; /* Ensures the width is respected */

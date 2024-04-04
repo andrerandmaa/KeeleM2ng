@@ -80,9 +80,7 @@ function chooseSuitableWordDef(allResults, wordDefDictionary, wordSorted, chosen
         // check if this word has has been used before
         if (chosenWordDefPairs.includes(chosenResult) || chosenResult.split("::")[0] === originalSentenceWord) {
             allResults.splice(randomIndex, 1);
-            if (allResults.length > 0) {
-                return chooseSuitableWordDef(allResults, wordDefDictionary, wordSorted, chosenWordDefPairs, originalSentenceWord);
-            }
+            return chooseSuitableWordDef(allResults, wordDefDictionary, wordSorted, chosenWordDefPairs, originalSentenceWord);
         }
     }
     // generate new possible candidates
@@ -90,7 +88,7 @@ function chooseSuitableWordDef(allResults, wordDefDictionary, wordSorted, chosen
         // remove the first letter, first letter tends to be more common in estonian (don't need as much as latter letters)
         if (wordSorted.length > 1) {
             const shortenWordSorted = wordSorted.substring(1);
-            allResults = findAllWordResults(shortenWordSorted, wordDefDictionary);
+            allResults = findAllWordResults(shortenWordSorted, wordDefDictionary, originalSentenceWord);
             return chooseSuitableWordDef(allResults, wordDefDictionary, shortenWordSorted, chosenWordDefPairs, originalSentenceWord);
         }
         // no suitable candidates found. Choose randomly
@@ -103,10 +101,10 @@ function chooseSuitableWordDef(allResults, wordDefDictionary, wordSorted, chosen
 }
 
 // finds all suitable candidates for substring
-function findAllWordResults(wordSorted, wordDefDictionary) {
+function findAllWordResults(wordSorted, wordDefDictionary, originalSentenceWord) {
     let allResults = new Array();
     for (let key in wordDefDictionary) {
-        if (key.includes(wordSorted) && key !== wordSorted) {
+        if (wordSorted.split('').every(letter => key.includes(letter)) && key !== originalSentenceWord) {
             allResults.push(wordDefDictionary[key]);
         }
     }
@@ -123,8 +121,8 @@ function findChosenWordDefPairs(sentenceSolution, wordDefDictionary, chosenWordD
     //console.log(reorderedSentence);
 
     for (let i = 0; i < reorderedSentence.length; i++) {
-        const wordSorted = reorderedSentence[i].split("").sort().join("");
-        const allResults = findAllWordResults(wordSorted, wordDefDictionary);
+        const wordSorted = reorderedSentence[i].split("").filter((value, index, self) => self.indexOf(value) === index).sort().join("");
+        const allResults = findAllWordResults(wordSorted, wordDefDictionary, reorderedSentence[i]);
         //console.log(allResults);
         const chosenWordDef = chooseSuitableWordDef(allResults, wordDefDictionary, wordSorted, chosenWordDefPairs, reorderedSentence[i]);
         chosenWordDefPairs.push(chosenWordDef);
@@ -244,7 +242,7 @@ function drawGrid(container, sentenceSolution, wordDefDictionary, lettersNumbers
     let chosenWordDefPairs = new Array();
     findChosenWordDefPairs(sentenceSolution, wordDefDictionary, chosenWordDefPairs);
 
-    const minimumRequiredWordDefPairs = 6;
+    const minimumRequiredWordDefPairs = 8;
     if (chosenWordDefPairs.length < minimumRequiredWordDefPairs) {
         const cycles = minimumRequiredWordDefPairs - chosenWordDefPairs.length;
         for (let i = 0; i < cycles; i++) {
