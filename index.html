@@ -4,11 +4,12 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Eesti Figgerits</title>
+        <title>Täherik</title>
         <link rel="stylesheet" href="./src/style.css">
     </head>
     <body>
         <div id="game"></div>
+        <div id="score"></div>
         <div id="modalWin" class="modal">
             <div class="modal-content">
                 <span id="modalWinClose" class="close">&times;</span>
@@ -20,15 +21,10 @@
                     <p id="inputsAmount">Sisestusi: ... </p>
                     <p id="incorrectInputsAmount">Vigaseid sisestusi: ... </p>
                     <br>
-                    <p>Võid veel arvata teisi sõnu kui mõni lahendamata jäi</p>
+                    <p>Võid veel arvata teisi sõnu kui mõni lahendamata jäi.</p>
+                    <p>Sulge see aken.</p>
                     <br>
                 </div>
-                <!--
-                <div id="modalReplay" class="modalCentered">
-                    <button id="myBtn"  onClick="window.location.reload();">
-                        <p class="modalText">Uus mäng</p>
-                    </button>
-                </div> -->
             </div>
         </div>
         <div id="modalHelp" class="modal">
@@ -39,9 +35,10 @@
                     <p>Mängu eesmärk on leida <span style="font-weight:bold;">võtmelause</span> kõik tähed.</p>
                     <br>
                     <p>Abiks on nummerdatud tähekastid ja mõistete definitsioonid.</p>
-                    <p>Igale tähele on omandatud unikaalne number.</p>
+                    <p>Igal tähel on oma number.</p>
                     <p>Klikka ühele tähekastile ja sisesta neisse tähti kuni kõik kastid on täidetud.</p>
                     <p>Sõna kinnitamiseks vajuta <span style="font-weight:bold;">'enter'</span> klahvile.</p>
+                    <p>Vasakul ekraanil kuvatakse kõikide sisestuste ja vigaste sisestuste skoori.</p>
                     <br>
                     <p>Näide tähekastide värvide tähendustest:</p>
                     <div class="grid">

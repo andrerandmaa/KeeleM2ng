@@ -286,9 +286,6 @@ async function readWordDefFileObsolete() {
 async function readWordDefFile() {
     try {
         const response = await fetch('definitions.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
         const dataString = await response.text();
         const data = JSON.parse(dataString);
 
@@ -312,9 +309,9 @@ async function readSentenceFile() {
         const lines = (await response.text()).split('\n');
         const randomSentence = getRandomItem(lines);
         const chosenSentence = randomSentence.replace(/\r+$/, '');
-        const lowerCaseSentenceChosenSentence = chosenSentence.toLowerCase();
+        const lowerCaseChosenSentence = chosenSentence.toLowerCase();
 
-        return lowerCaseSentenceChosenSentence;
+        return lowerCaseChosenSentence;
     }
     catch (error) {
         console.error('Error reading the file:', error);
@@ -327,8 +324,9 @@ async function startup() {
     const sentenceSolution = await readSentenceFile();
     const wordDefDictionary = await readWordDefFile();
     letterAndNumberHashset = uniqueLettersAndNumbers();
+    scoreCount(true);
     drawGrid(game, sentenceSolution, wordDefDictionary, letterAndNumberHashset);
-    console.log(mysteryWords);
+    //console.log(mysteryWords);
     const cells = document.querySelectorAll(".box");
     cells.forEach(cell => {
         cell.addEventListener("click", cellClicked);
@@ -371,21 +369,57 @@ function handleKeyPress(event) {
     }
 }
 
+var eachWordEnteredLettersDictionary = {};
+
 function cellWrite(event) {
     let cell = event.target;
+    /*
+    let cellRowNr = cell.id.split(':')[1];
+
+    if (cell.textContent.length > 1) {
+        var index = eachWordEnteredLettersDictionary[cellRowNr].indexOf(cell.textContent[0]);
+        eachWordEnteredLettersDictionary[cellRowNr].splice(index, 1);
+    }
+
+    let numberValue = cell.nextElementSibling.textContent;
+    const wholeDocumentCells = document.getElementById('game').querySelectorAll('.box');
+    wholeDocumentCells.forEach(singleDocumentCell => {
+        let cellIdNumericalValue = singleDocumentCell.id.split(':')[3];
+        if (numberValue === cellIdNumericalValue) {
+            singleDocumentCell.textContent = lastCharacter;
+            if (singleDocumentCell.classList.contains('mistake') || singleDocumentCell.classList.contains('wrong')) {
+                singleDocumentCell.classList.remove('mistake');
+                singleDocumentCell.classList.remove('wrong');
+            } 
+        }
+    })   
+
+    if (cellRowNr in eachWordEnteredLettersDictionary) {
+        if (!eachWordEnteredLettersDictionary[cellRowNr].includes(lastCharacter)) {
+            eachWordEnteredLettersDictionary[cellRowNr].push(lastCharacter);
+        }
+    } else {
+        eachWordEnteredLettersDictionary[cellRowNr] = [lastCharacter];
+    }
+    */
 
     if (cell.textContent.length > 1) {
         cell.textContent = lastCharacter;
         if (cell.classList.contains('mistake') || cell.classList.contains('wrong')) {
             cell.classList.remove('mistake');
             cell.classList.remove('wrong');
-        }
+        } 
     }
+
     // Check if the current cell already has a letter
     if (cell.textContent.length === 1) {
         let nextCell = cell.nextElementSibling;
 
-        while (nextCell && (nextCell.classList.contains('correct') || nextCell.classList.contains('filledSpace') || nextCell.classList.contains('h3'))) {
+        /*
+        console.log(eachWordEnteredLettersDictionary);
+         || eachWordEnteredLettersDictionary[cellRowNr].includes(nextCell.textContent)
+        */
+        while (nextCell && ((nextCell.classList.contains('correct') || nextCell.classList.contains('filledSpace') || nextCell.classList.contains('h3')))) {
             if (nextCell.nextElementSibling == null) {
                 nextCell = nextCell.parentNode;
                 nextCell = nextCell.nextElementSibling;
@@ -431,6 +465,47 @@ function backspaceOrDeletePressed(cell) {
     if (cell.textContent !== '') {
         cell.textContent = '';
     }
+
+    if (cell.classList.contains('mistake') || cell.classList.contains('wrong')) {
+        cell.classList.remove('mistake');
+        cell.classList.remove('wrong');
+    }
+
+    let prevCell = cell;
+    if (cell.previousElementSibling == null) {
+        prevCell = cell.parentNode;
+        prevCell = prevCell.previousElementSibling;
+        if (prevCell == null) {
+            return;
+        }
+        prevCell = prevCell.lastElementChild;
+    } else {
+        prevCell = cell.previousElementSibling;
+    }
+
+    while (prevCell && (prevCell.classList.contains('correct') || prevCell.classList.contains('filledSpace') || prevCell.classList.contains('h3'))) {
+        if (prevCell.previousElementSibling == null) {
+            prevCell = prevCell.parentNode;
+            prevCell = prevCell.previousElementSibling;
+            if (prevCell == null) {
+                return;
+            }
+            prevCell = prevCell.lastElementChild;
+        }
+        else {
+            prevCell = prevCell.previousElementSibling;
+        }
+    }
+
+    if (prevCell) {
+        prevCell.contentEditable = true;
+        prevCell.focus();
+
+        // Clear '?' character from the next cell, if present
+        if (prevCell.textContent === '?') {
+            prevCell.textContent = '';
+        }
+    }
 }
 
 function findAllCellGridBoxContents(cell) {
@@ -444,7 +519,7 @@ function findAllCellGridBoxContents(cell) {
     allCells.forEach(singleCell => {
         guessedWord = guessedWord + singleCell.textContent.toUpperCase();
     })
-    console.log(guessedWord);
+    //console.log(guessedWord);
     
     checkWordCorrection(guessedWord, cellWordIndex, allCells, cell);
 }
@@ -457,7 +532,7 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
         const wholeDocumentCells = document.getElementById('game').querySelectorAll('.box');
         // check if current word is correct
         if (mysteryWords[cellWordIndex] === guessedWord) {
-            console.log("you guessed " + mysteryWords[cellWordIndex] + " correctly!");
+            //console.log("you guessed " + mysteryWords[cellWordIndex] + " correctly!");
             let index = 0;
             // add all current word correctly guessed letters to hashset type object
             allCells.forEach(singleCell => {
@@ -466,7 +541,8 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
             })
         } 
         else {
-            console.log("incorrect guess! :(");
+            //console.log("incorrect guess! :(");
+            eachWordEnteredLettersDictionary[cellWordIndex] = [];
             let index = 0;
             allCells.forEach(singleCell => {
                 // add all current word correctly guessed letters to hashset type object
@@ -492,6 +568,7 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
 
         // fills ALL cells that contain found out letters
         fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers);
+        scoreCount(false);
 
         cell.contentEditable = false;
         cell.blur;
@@ -520,6 +597,30 @@ function checkAnswerCells(mysteryWords) {
     }
 }
 
+function scoreCount(initial) {
+    if (initial) {
+        const scoreDiv = document.getElementById("score");
+        var inputsMessage = document.createElement("p");
+        inputsMessage.id = "inputsScore";
+        inputsMessage.className = "score1";
+        inputsMessage.innerHTML = "Sisestusi: " + inputsAmount;
+        scoreDiv.appendChild(inputsMessage);
+
+        var incorrectInputsMessage = document.createElement("p");
+        incorrectInputsMessage.id = "incorrectInputsScore";
+        incorrectInputsMessage.className = "score2";
+        incorrectInputsMessage.innerHTML = "Vigaseid sisestusi: " + incorrectInputsAmount;
+        scoreDiv.appendChild(incorrectInputsMessage);
+    }
+    else {
+        const inputsMessageId = document.getElementById("inputsScore");
+        inputsMessageId.innerHTML = "Sisestusi: " + inputsAmount;
+
+        const incorrectInputsMessageId = document.getElementById("incorrectInputsScore");
+        incorrectInputsMessageId.innerHTML = "Vigaseid sisestusi: " + incorrectInputsAmount;
+    }
+}
+
 function fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers) {
     wholeDocumentCells.forEach(singleDocumentCell => {
         let cellIdNumericalValue = singleDocumentCell.id.split(':')[3];
@@ -535,13 +636,12 @@ function fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers) {
 
 function gameWin(answerWord) {
     const modal = document.getElementById("modalWin");
-    var btn = document.getElementById("myBtn");
     var span = document.getElementById("modalWinClose");
     modal.style.display = "block";
 
     var answerWordLower = mysteryWords[0].toLowerCase()
     var winMessage = answerWordLower.charAt(0).toUpperCase() + answerWordLower.slice(1);
-
+    
     var answerMessage = document.getElementById("answerSlot");
     var inputsMessage = document.getElementById("inputsAmount");
     var incorrectInputsMessage = document.getElementById("incorrectInputsAmount");
