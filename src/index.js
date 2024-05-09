@@ -2,7 +2,7 @@ let mysteryWords = new Array();
 let correctlyGuessedNumbers = {};
 let letterAndNumberHashset = {};
 
-// https://www.youtube.com/watch?v=oKM2nQdQkIU
+// Lines 6-46 took inspiration from lines 38-46 in: https://github.com/DoubleDebug/wordle-speedrun/blob/master/src/index.js
 function drawBox(container, row, col, lettersNumbers, word) {
     const box = document.createElement('div');
     box.className = 'box';
@@ -35,7 +35,6 @@ function drawDefinitions(container, word, definition) {
     def.className = 'h2';
     def.textContent = definition;
     container.appendChild(def);
-    //console.log(word, def);
 }
 
 function drawNumbers(grid, row, col, lettersNumbers, word) {
@@ -46,18 +45,18 @@ function drawNumbers(grid, row, col, lettersNumbers, word) {
     grid.appendChild(numbers);
 }
 
+// Generates number values for each letter below
 function uniqueLettersAndNumbers() {
-    const eesti_tähed = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","Š","Z","Ž","T","U","V","W","Õ","Ä","Ö","Ü","X","Y"];
+    const est_letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","Š","Z","Ž","T","U","V","W","Õ","Ä","Ö","Ü","X","Y"];
 
     let unique_numbers = Array.from({length: 32}, (_, i) => i + 1);
     unique_numbers.sort(() => Math.random() - 0.5);
 
     let hashset = {};
-    eesti_tähed.forEach((letter, i) => {
+    est_letters.forEach((letter, i) => {
         hashset[letter] = unique_numbers[i];
     });
     
-    //console.log(hashset);
     return hashset;
 }
 
@@ -118,8 +117,6 @@ function findChosenWordDefPairs(sentenceSolution, wordDefDictionary, chosenWordD
     const reorderedSentence = splittedSentence.filter(word => word.length > 1);
     reorderedSentence.sort((a, b) => a.length - b.length);
 
-    //console.log(reorderedSentence);
-
     for (let i = 0; i < reorderedSentence.length; i++) {
         const wordSorted = reorderedSentence[i].split("").filter((value, index, self) => self.indexOf(value) === index).sort().join("");
         const allResults = findAllWordResults(wordSorted, wordDefDictionary, reorderedSentence[i]);
@@ -129,6 +126,7 @@ function findChosenWordDefPairs(sentenceSolution, wordDefDictionary, chosenWordD
     }
 }
 
+// manually create helpButton, replayButton and keysentence section
 function topTaskbarCreate(container) {
     const topBar = document.createElement('div');
     topBar.className = "flex-box";
@@ -136,7 +134,6 @@ function topTaskbarCreate(container) {
     const keySent = document.createElement('h1');
     keySent.className = 'h1';
     keySent.textContent = 'VÕTMELAUSE';
-    //keySent.style.padding = "10px 200px 10px 200px";
     topBar.appendChild(keySent);
 
     const replayButton = document.createElement('button');
@@ -236,7 +233,6 @@ function drawWordsDefsGrid(container, chosenWordDefPairs, lettersNumbers) {
 }
 
 function drawGrid(container, sentenceSolution, wordDefDictionary, lettersNumbers) {
-    //let lettersNumbers = uniqueLettersAndNumbers();
     drawSentenceGrid(container, sentenceSolution, lettersNumbers);
     
     let chosenWordDefPairs = new Array();
@@ -249,38 +245,12 @@ function drawGrid(container, sentenceSolution, wordDefDictionary, lettersNumbers
             chosenWordDefPairs.push(chooseRandomWordDef(wordDefDictionary, chosenWordDefPairs));
         }
     }
-    //console.log(chosenWordDefPairs);
     
     drawWordsDefsGrid(container, chosenWordDefPairs, lettersNumbers);
 }
 
 function getRandomItem(array) {
     return array[Math.floor(Math.random() * array.length)];
-}
-
-// chatgpt abiga
-async function readWordDefFileObsolete() {
-    try {
-        const response = await fetch('definitions.txt');
-        const lines = (await response.text()).split('\n');
-
-        // Select 5 random lines
-        const selectedLines = [];
-        const reformattedLines = [];
-        while (selectedLines.length < 5) {
-            const randomLine = getRandomItem(lines);
-            if (!selectedLines.includes(randomLine)) {
-            selectedLines.push(randomLine);
-            reformattedLines.push(randomLine.split('_'));
-            }
-        }
-        //console.log(reformattedLines);
-        return reformattedLines;
-    }
-    catch (error) {
-        console.error('Error reading the file:', error);
-        throw error;
-    }
 }
 
 async function readWordDefFile() {
@@ -319,30 +289,7 @@ async function readSentenceFile() {
     }
 }
 
-async function startup() {
-    const game = document.getElementById('game');
-    const sentenceSolution = await readSentenceFile();
-    const wordDefDictionary = await readWordDefFile();
-    letterAndNumberHashset = uniqueLettersAndNumbers();
-    scoreCount(true);
-    drawGrid(game, sentenceSolution, wordDefDictionary, letterAndNumberHashset);
-    //console.log(mysteryWords);
-    const cells = document.querySelectorAll(".box");
-    cells.forEach(cell => {
-        cell.addEventListener("click", cellClicked);
-        cell.addEventListener("input", cellWrite);
-        cell.addEventListener("keydown", handleKeyPress);
-    });
-    document.getElementById('replayButton').addEventListener('click', function() {
-        window.location.reload();
-    });
-    document.getElementById('helpButton').addEventListener('click', function() {
-        helpModal();
-    });
-}
-
 let lastCharacter = '';
-
 function handleKeyPress(event) {
     // Get the key code of the pressed key
     let cell = event.target;
@@ -373,35 +320,6 @@ var eachWordEnteredLettersDictionary = {};
 
 function cellWrite(event) {
     let cell = event.target;
-    /*
-    let cellRowNr = cell.id.split(':')[1];
-
-    if (cell.textContent.length > 1) {
-        var index = eachWordEnteredLettersDictionary[cellRowNr].indexOf(cell.textContent[0]);
-        eachWordEnteredLettersDictionary[cellRowNr].splice(index, 1);
-    }
-
-    let numberValue = cell.nextElementSibling.textContent;
-    const wholeDocumentCells = document.getElementById('game').querySelectorAll('.box');
-    wholeDocumentCells.forEach(singleDocumentCell => {
-        let cellIdNumericalValue = singleDocumentCell.id.split(':')[3];
-        if (numberValue === cellIdNumericalValue) {
-            singleDocumentCell.textContent = lastCharacter;
-            if (singleDocumentCell.classList.contains('mistake') || singleDocumentCell.classList.contains('wrong')) {
-                singleDocumentCell.classList.remove('mistake');
-                singleDocumentCell.classList.remove('wrong');
-            } 
-        }
-    })   
-
-    if (cellRowNr in eachWordEnteredLettersDictionary) {
-        if (!eachWordEnteredLettersDictionary[cellRowNr].includes(lastCharacter)) {
-            eachWordEnteredLettersDictionary[cellRowNr].push(lastCharacter);
-        }
-    } else {
-        eachWordEnteredLettersDictionary[cellRowNr] = [lastCharacter];
-    }
-    */
 
     if (cell.textContent.length > 1) {
         cell.textContent = lastCharacter;
@@ -415,10 +333,6 @@ function cellWrite(event) {
     if (cell.textContent.length === 1) {
         let nextCell = cell.nextElementSibling;
 
-        /*
-        console.log(eachWordEnteredLettersDictionary);
-         || eachWordEnteredLettersDictionary[cellRowNr].includes(nextCell.textContent)
-        */
         while (nextCell && ((nextCell.classList.contains('correct') || nextCell.classList.contains('filledSpace') || nextCell.classList.contains('h3')))) {
             if (nextCell.nextElementSibling == null) {
                 nextCell = nextCell.parentNode;
@@ -443,7 +357,6 @@ function cellWrite(event) {
             }
         }
     }
-
 }
 
 function cellClicked(event) {
@@ -465,45 +378,46 @@ function backspaceOrDeletePressed(cell) {
     if (cell.textContent !== '') {
         cell.textContent = '';
     }
-
     if (cell.classList.contains('mistake') || cell.classList.contains('wrong')) {
         cell.classList.remove('mistake');
         cell.classList.remove('wrong');
+        return
     }
-
-    let prevCell = cell;
-    if (cell.previousElementSibling == null) {
-        prevCell = cell.parentNode;
-        prevCell = prevCell.previousElementSibling;
-        if (prevCell == null) {
-            return;
-        }
-        prevCell = prevCell.lastElementChild;
-    } else {
-        prevCell = cell.previousElementSibling;
-    }
-
-    while (prevCell && (prevCell.classList.contains('correct') || prevCell.classList.contains('filledSpace') || prevCell.classList.contains('h3'))) {
-        if (prevCell.previousElementSibling == null) {
-            prevCell = prevCell.parentNode;
+    else {
+        let prevCell = cell;
+        if (cell.previousElementSibling == null) {
+            prevCell = cell.parentNode;
             prevCell = prevCell.previousElementSibling;
             if (prevCell == null) {
                 return;
             }
             prevCell = prevCell.lastElementChild;
+        } else {
+            prevCell = cell.previousElementSibling;
         }
-        else {
-            prevCell = prevCell.previousElementSibling;
+
+        while (prevCell && (prevCell.classList.contains('correct') || prevCell.classList.contains('filledSpace') || prevCell.classList.contains('h3'))) {
+            if (prevCell.previousElementSibling == null) {
+                prevCell = prevCell.parentNode;
+                prevCell = prevCell.previousElementSibling;
+                if (prevCell == null) {
+                    return;
+                }
+                prevCell = prevCell.lastElementChild;
+            }
+            else {
+                prevCell = prevCell.previousElementSibling;
+            }
         }
-    }
 
-    if (prevCell) {
-        prevCell.contentEditable = true;
-        prevCell.focus();
+        if (prevCell) {
+            prevCell.contentEditable = true;
+            prevCell.focus();
 
-        // Clear '?' character from the next cell, if present
-        if (prevCell.textContent === '?') {
-            prevCell.textContent = '';
+            // Clear '?' character from the next cell, if present
+            if (prevCell.textContent === '?') {
+                prevCell.textContent = '';
+            }
         }
     }
 }
@@ -519,7 +433,6 @@ function findAllCellGridBoxContents(cell) {
     allCells.forEach(singleCell => {
         guessedWord = guessedWord + singleCell.textContent.toUpperCase();
     })
-    //console.log(guessedWord);
     
     checkWordCorrection(guessedWord, cellWordIndex, allCells, cell);
 }
@@ -532,7 +445,6 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
         const wholeDocumentCells = document.getElementById('game').querySelectorAll('.box');
         // check if current word is correct
         if (mysteryWords[cellWordIndex] === guessedWord) {
-            //console.log("you guessed " + mysteryWords[cellWordIndex] + " correctly!");
             let index = 0;
             // add all current word correctly guessed letters to hashset type object
             allCells.forEach(singleCell => {
@@ -541,7 +453,6 @@ function checkWordCorrection(guessedWord, cellWordIndex, allCells, cell) {
             })
         } 
         else {
-            //console.log("incorrect guess! :(");
             eachWordEnteredLettersDictionary[cellWordIndex] = [];
             let index = 0;
             allCells.forEach(singleCell => {
@@ -603,7 +514,7 @@ function scoreCount(initial) {
         var inputsMessage = document.createElement("p");
         inputsMessage.id = "inputsScore";
         inputsMessage.className = "score1";
-        inputsMessage.innerHTML = "Sisestusi: " + inputsAmount;
+        inputsMessage.innerHTML = "Sisestusi kokku: " + inputsAmount;
         scoreDiv.appendChild(inputsMessage);
 
         var incorrectInputsMessage = document.createElement("p");
@@ -614,7 +525,7 @@ function scoreCount(initial) {
     }
     else {
         const inputsMessageId = document.getElementById("inputsScore");
-        inputsMessageId.innerHTML = "Sisestusi: " + inputsAmount;
+        inputsMessageId.innerHTML = "Sisestusi kokku: " + inputsAmount;
 
         const incorrectInputsMessageId = document.getElementById("incorrectInputsScore");
         incorrectInputsMessageId.innerHTML = "Vigaseid sisestusi: " + incorrectInputsAmount;
@@ -634,6 +545,7 @@ function fillAllOccurrences(wholeDocumentCells, correctlyGuessedNumbers) {
     })
 }
 
+// this function takes inspiration from: https://www.w3schools.com/howto/howto_css_modals.asp
 function gameWin(answerWord) {
     const modal = document.getElementById("modalWin");
     var span = document.getElementById("modalWinClose");
@@ -646,8 +558,8 @@ function gameWin(answerWord) {
     var inputsMessage = document.getElementById("inputsAmount");
     var incorrectInputsMessage = document.getElementById("incorrectInputsAmount");
 
-    answerMessage.innerHTML = "Võtmevastus: <span style='font-weight: bold;'>" + winMessage + "</span>";
-    inputsMessage.innerHTML = "Sisestusi: " + inputsAmount;
+    answerMessage.innerHTML = "Võtmelause: <span style='font-weight: bold;'>" + winMessage + "</span>";
+    inputsMessage.innerHTML = "Sisestusi kokku: " + inputsAmount;
     incorrectInputsMessage.innerHTML = "Vigaseid sisestusi: " + incorrectInputsAmount;
 
     gameWon = true;
@@ -676,6 +588,7 @@ function showButton() {
     }
 }
 
+// this function is based on instructions from: https://www.w3schools.com/howto/howto_css_modals.asp
 function helpModal() {
     const modal = document.getElementById("modalHelp");
     modal.style.display = "block";
@@ -692,6 +605,29 @@ function helpModal() {
         modal.style.display = "none";
     }
     }
+}
+
+// When this function is called, website contents and logic are created
+async function startup() {
+    const game = document.getElementById('game');
+    const sentenceSolution = await readSentenceFile();
+    const wordDefDictionary = await readWordDefFile();
+    letterAndNumberHashset = uniqueLettersAndNumbers();
+    scoreCount(true);
+    drawGrid(game, sentenceSolution, wordDefDictionary, letterAndNumberHashset);
+    //console.log(mysteryWords);
+    const cells = document.querySelectorAll(".box");
+    cells.forEach(cell => {
+        cell.addEventListener("click", cellClicked);
+        cell.addEventListener("input", cellWrite);
+        cell.addEventListener("keydown", handleKeyPress);
+    });
+    document.getElementById('replayButton').addEventListener('click', function() {
+        window.location.reload();
+    });
+    document.getElementById('helpButton').addEventListener('click', function() {
+        helpModal();
+    });
 }
 
 startup();

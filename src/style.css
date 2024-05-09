@@ -4,11 +4,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.flex-box {
-    display:flex;
-    justify-content:space-between;
-}
-
+/* For keysentence block */
 .topCompartment {
     background: #d1cccc;
     max-width: 65%;
@@ -18,6 +14,7 @@ body {
     box-shadow: 0 0 3px 2px #9e9e9e;
 }
 
+/* hard-coded placement for scores */
 .score1 {
     left: 20px;
     position: absolute;
@@ -29,16 +26,8 @@ body {
     position: absolute;
     top: 43px;
 }
-
-.p {
-    font-family: 'Montserrat', 'Open Sans', sans-serif;
-    text-align: center;
-    font-size: 16px;
-    color: black;
-    max-width: 50%;
-    margin: 10px auto 5px auto;
-}
   
+/* replayButton and helpButton styles */
 .replayBtn {
     position: absolute;
     right: 0;
@@ -71,6 +60,7 @@ body {
     border-radius: 50%;
 }
 
+/* Color change when hovering replayButton and helpButton */
 .replayBtn:hover,
 .replayBtn:focus {
     color: black;
@@ -92,6 +82,7 @@ body {
     place-items: center;
 }
 
+/* For letter characters*/
 .box {
     width: 45px;
     height: 60px;
@@ -110,6 +101,7 @@ body {
     border-radius: 5px;
 }
 
+/* For whitespace and '-' characters */
 .filledSpace {
     width: 45px;
     height: 60px;
@@ -151,16 +143,17 @@ body {
 
 .h3 {
     font-size: 16px;
-    /*flex-basis: 100%;*/
     color: black;
     text-align: center;
     position: relative;
     right: 30px;
     top: 52px;
-    width: 2px; /* Width for 1-letter text */
-    display: inline-block; /* Ensures the width is respected */
+    width: 2px;
+    display: inline-block;
 }
 
+
+/* Letter boxes' flex-box*/
 .grid {
     max-width: 60%;
     margin: 1rem auto;
@@ -171,8 +164,13 @@ body {
     justify-content: center;
 }
 
+.flex-box {
+    display:flex;
+    justify-content:space-between;
+}
+
 .flex-item {
-    margin-bottom: 5px; /* Adjust margin as needed */
+    margin-bottom: 5px;
     display: flex;
     flex-direction: row;
 }
@@ -187,17 +185,8 @@ body {
     line-height: 28px;
 }
 
-.tutorialMini {
-    line-height: 32px;
-    text-align: left;
-    padding: 10px 15px;
-    background: #bcc0c4;
-    border-radius: 10px;
-    color: black;
-    font-size: 14px;
-    box-shadow: 0 0 3px 2px #9e9e9e;
-}
 
+/* Box colors */
 .box.empty {
     background: gray;
 }
@@ -214,6 +203,8 @@ body {
     background: #ffc635;
 }
 
+
+/* Tutorial named style lines are for help window */
 .box.tutorial {
     cursor: default !important;
 }
@@ -227,6 +218,17 @@ body {
     place-items: center;
     position: relative;
     border-radius: 5px;
+}
+
+.tutorialMini {
+    line-height: 32px;
+    text-align: left;
+    padding: 10px 15px;
+    background: #bcc0c4;
+    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+    box-shadow: 0 0 3px 2px #9e9e9e;
 }
 
 .tutorialMiniBox.correct {
@@ -245,6 +247,7 @@ body {
     background: #b1bbc2;
 }
 
+/* b and p are general fonts */
 b {
     margin-top: 12px;
     color: black;
@@ -259,6 +262,7 @@ p {
     margin: 10px auto 5px auto;
 }
 
+/* Additional styles for modal window */
 .modalBtnText {
     font-weight: bold;
     text-align: center;
@@ -273,7 +277,13 @@ p {
 }
 
 
-/* https://www.w3schools.com/howto/howto_css_modals.asp */
+/********************************************************************
+* Pealkiri: How TO - CSS/JS Modal
+* Autor: w3schools
+* Saadavus: https://www.w3schools.com/howto/howto_css_modals.asp
+*
+*********************************************************************/
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

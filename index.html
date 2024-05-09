@@ -10,6 +10,8 @@
     <body>
         <div id="game"></div>
         <div id="score"></div>
+        <!-- Lines 15-17 and 34-36 take inspiration from instructions at https://www.w3schools.com/howto/howto_css_modals.asp -->
+        <!-- This section is for victory condition modal window -->
         <div id="modalWin" class="modal">
             <div class="modal-content">
                 <span id="modalWinClose" class="close">&times;</span>
@@ -17,16 +19,18 @@
                     <br>
                     <h2>Sa leidsid võtmevastuse!</h2>
                     <br>
-                    <p id="answerSlot">Võtmevastus: ... </p>
-                    <p id="inputsAmount">Sisestusi: ... </p>
+                    <p id="answerSlot">Võtmelause: ... </p>
+                    <p id="inputsAmount">Sisestusi kokku: ... </p>
                     <p id="incorrectInputsAmount">Vigaseid sisestusi: ... </p>
                     <br>
-                    <p>Võid veel arvata teisi sõnu kui mõni lahendamata jäi.</p>
-                    <p>Sulge see aken.</p>
+                    <p>Akna sulgemisel ilmub paremasse serva roheline nupp, millele vajutades saab uut mängu alustada.</p>
+                    <br>
+                    <p>Samuti võid veel arvata allesjäänud mõisteid, kui mõni lahendamata jäi.</p>
                     <br>
                 </div>
             </div>
         </div>
+        <!-- This section is for instructions modal window -->
         <div id="modalHelp" class="modal">
             <div class="modal-content">
                 <span id="modalHelpClose" class="close">&times;</span>
@@ -35,12 +39,13 @@
                     <p>Mängu eesmärk on leida <span style="font-weight:bold;">võtmelause</span> kõik tähed.</p>
                     <br>
                     <p>Abiks on nummerdatud tähekastid ja mõistete definitsioonid.</p>
-                    <p>Igal tähel on oma number.</p>
-                    <p>Klikka ühele tähekastile ja sisesta neisse tähti kuni kõik kastid on täidetud.</p>
+                    <p>Igal tähestikutähel on oma number.</p>
+                    <p>Klikka ühele tähekastile ja sisesta sellesse täht kuni kõik kastid on täidetud.</p>
                     <p>Sõna kinnitamiseks vajuta <span style="font-weight:bold;">'enter'</span> klahvile.</p>
-                    <p>Vasakul ekraanil kuvatakse kõikide sisestuste ja vigaste sisestuste skoori.</p>
+                    <p>Ekraani vasakus servas kuvatakse kõikide sisestuste ja vigaste sisestuste skoori.</p>
                     <br>
                     <p>Näide tähekastide värvide tähendustest:</p>
+                    <!-- This section shows an example word -->
                     <div class="grid">
                         <div id="exampleWord" class="flex-item">
                             <div id="tutorialBox" class="box correct tutorial">O</div>
@@ -55,6 +60,7 @@
                             <h3 class="h3">9</h3>
                         </div>
                     </div>
+                    <!-- This section describes example letter meanings -->
                     <div class="grid">
                         <div class="tutorialMini">
                             <b class="tutorialMiniBox correct">O</b>
@@ -74,7 +80,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <script src="./src/index.js" type="module"></script>
